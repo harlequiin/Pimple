@@ -26,11 +26,12 @@
 
 namespace Pimple\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Pimple\Container;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @author  Dominik Zogg <dominik.zogg@gmail.com>
+ * @author Dominik Zogg <dominik.zogg@gmail.com>
  */
 class PimpleServiceProviderInterfaceTest extends TestCase
 {
@@ -57,9 +58,9 @@ class PimpleServiceProviderInterfaceTest extends TestCase
     {
         $pimple = new Container();
 
-        $pimple->register(new Fixtures\PimpleServiceProvider(), array(
+        $pimple->register(new Fixtures\PimpleServiceProvider(), [
             'anotherParameter' => 'anotherValue',
-        ));
+        ]);
 
         $this->assertEquals('value', $pimple['param']);
         $this->assertEquals('anotherValue', $pimple['anotherParameter']);
